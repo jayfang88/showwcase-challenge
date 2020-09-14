@@ -37,6 +37,11 @@
 }
 
 .name-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: black;
   margin-top: 30px;
   background-color: lightgray;
   border: none;
