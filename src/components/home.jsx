@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class Home extends React.Component {
   constructor() {
@@ -11,19 +11,21 @@ class Home extends React.Component {
   }
 
   update(e) {
+    // sets state's 'name' to current target of input field
     this.setState({ name: e.currentTarget.value });
   }
 
   goToMain() {
+    // want some way to prevent users from proceeding unless they enter a name
     if (!this.state.name) {
       alert('please enter a name');
       return
     }
-    console.log(this.state.name);
+    
+    // redirect to main page w/ user's entered name
   }
 
   render() {
-    const nanana = this.state.name;
     return (
       <div className="App">
         <main className="main">
@@ -31,7 +33,11 @@ class Home extends React.Component {
           <p>Type your name and click "Enter" below to begin!</p>
           <input type="text" onChange={this.update} placeholder='Your Name' className='name-input'
               value={this.name}></input>
-          <Link className='name-button' to={{pathname: '/main', state:{name: nanana}}}>Enter</Link>
+
+          {/* Link to main page - currently no way of preventing users from proceeding
+          regardless of empty name field or not */}
+          <Link className='name-button' to={{pathname: '/main', state:{name: this.state.name}}}>Enter</Link>
+          
           {/* <button className='name-button' onClick={() => this.goToMain()}>Enter</button> */}
         </main>
       </div>
