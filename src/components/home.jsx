@@ -28,7 +28,7 @@ class Home extends React.Component {
   render() {
     return (
       <div className="App">
-        <main className="main">
+        <main className="home">
           <p>Hi there! Welcome to your education showcase.</p>
           <p>Type your name and click "Enter" below to begin!</p>
           <input type="text" onChange={this.update} placeholder='Your Name' className='name-input'

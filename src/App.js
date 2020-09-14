@@ -3,8 +3,10 @@ import { Provider } from 'react-redux';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import Home from './components/home';
 import Main from './components/main';
-import './reset.css';
-import './App.css';
+import './styles/reset.css';
+import './styles/App.css';
+import './styles/main-page.css';
+import './styles/school-card.css';
 
 function App({}) {
   return (

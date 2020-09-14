@@ -1,0 +1,58 @@
+.main {
+}
+
+.main-header {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* width: 50%; */
+}
+.main-header h2 {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+.bold {
+    font-weight: 600;
+}
+
+.add-education {
+    background-color: lightgray;
+    border: none;
+    border-radius: 2px;
+    width: 200px;
+    height: 40px;
+    font-size: 14px;
+}
+.add-education:hover {
+    cursor: pointer;
+    filter: brightness(90%);
+}
+.add-education:focus {
+    outline: none;
+}
+
+.main-body {
+    padding: 50px;
+    display: flex;
+}
+
+.main-aside {
+    width: 20%;
+}
+.main-aside-info {
+    /* display: flex;
+    flex-direction: column; */
+    padding: 20px;
+    background-color: lightgray;
+}
+
+.main-body {
+    width: 80%;
+}
+.main-body-info {
+
+    padding: 20px;
+    background-color: lightgray;
+}
