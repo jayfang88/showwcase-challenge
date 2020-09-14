@@ -10,9 +10,10 @@ class Main extends React.Component {
         // debugger;
     }
 
+
     render() {
         let name;
-        if (this.props.location.state) {
+        if (this.props.location.state && this.props.location.state.name) {
             name = this.props.location.state.name;
         } else {
             name = 'No Name';
