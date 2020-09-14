@@ -19,7 +19,7 @@
   width: 60%;
 }
 .main :first-child {
-  margin-bottom: 120px;
+  margin-bottom: 100px;
 }
 
 .name-input {
@@ -28,8 +28,9 @@
   height: 42px;
   padding: 3px 15px;
   font-size: 20px;
-  border: 2px solid black;
+  border: 1px solid black;
   box-shadow: 2px 2px 6px 0px GRAY;
+  border-radius: 2px;
 }
 .name-input:focus {
   outline: none;
@@ -41,7 +42,7 @@
   border: none;
   border-radius: 2px;
   font-size: 18px;
-  width: 100px;
+  width: 120px;
   height: 40px;
 }
 .name-button:hover {
