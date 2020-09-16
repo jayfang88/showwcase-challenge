@@ -7,6 +7,7 @@ import './styles/reset.css';
 import './styles/App.css';
 import './styles/main-page.css';
 import './styles/school-card.css';
+import './styles/modal.css';
 
 function App() {
   return (

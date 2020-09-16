@@ -1,0 +1,30 @@
+.ReactModal__Overlay {
+    filter: brightness(40%);
+}
+
+/* .ReactModal__Content {
+    z-index: 10;
+    filter: brightness(150%);
+} */
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: 50vw;
+    height: 300px;
+    z-index: 10;
+}
+
+.modal-head {
+    font-weight: 600;
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+}
