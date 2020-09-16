@@ -73,31 +73,45 @@ const Main = (props) => {
                     onRequestClose={closeModal}
                     // style={customStyles}
                     className={'modal'}
-                    // overlayClassName={'modal-overlay'}
+                    style={{
+                        overlay: {
+                            position: 'fixed',
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            bottom: 0,
+                            backgroundColor: 'rgba(59, 59, 59, 0.5)',
+                        }
+                    }}
                 >
                     <h2 className='modal-head'>New Education Modal</h2>
                     <form className='modal-form'>
-                        <label>Name:
-                            <input type="text" onChange={(e) => updateEdu({...newEdu, name: e.target.value})} value={newEdu.name}/>
-                        </label>
-                        <label>Degree:
-                            <input type="text" onChange={(e) => updateEdu({...newEdu, degree: e.target.value})} value={newEdu.degree} />
-                        </label>
-                        <label>Field:
-                            <input type="text" onChange={(e) => updateEdu({...newEdu, field: e.target.value})} value={newEdu.field} />
-                        </label>
-                        <label>Start:
-                            <input type="text" onChange={(e) => updateEdu({...newEdu, start: e.target.value})} value={newEdu.start} />
-                        </label>
-                        <label>End:
-                            <input type="text" onChange={(e) => updateEdu({...newEdu, end: e.target.value})} value={newEdu.end} />
-                        </label>
-                        <label>Grade:
-                            <input type="text" onChange={(e) => updateEdu({...newEdu, gpa: e.target.value})} value={newEdu.gpa} />
-                        </label>
-                        <label>Description:
+                        <label className='modal-label'>Name:</label>
+                            <input type="text" 
+                            onChange={(e) => updateEdu({...newEdu, name: e.target.value})} 
+                            value={newEdu.name} className='modal-input'/>
+                        <label className='modal-label'>Degree:</label>
+                            <input type="text" 
+                            onChange={(e) => updateEdu({...newEdu, degree: e.target.value})} 
+                            value={newEdu.degree} className='modal-input'/>
+                        <label className='modal-label'>Field:</label>
+                            <input type="text" 
+                            onChange={(e) => updateEdu({...newEdu, field: e.target.value})} 
+                            value={newEdu.field} className='modal-input'/>
+                        <label className='modal-label'>Start:</label>
+                            <input type="text" 
+                            onChange={(e) => updateEdu({...newEdu, start: e.target.value})} 
+                            value={newEdu.start} className='modal-input'/>
+                        <label className='modal-label'>End:</label>
+                            <input type="text" 
+                            onChange={(e) => updateEdu({...newEdu, end: e.target.value})} 
+                            value={newEdu.end} className='modal-input'/>
+                        <label className='modal-label'>Grade:</label>
+                            <input type="text" 
+                            onChange={(e) => updateEdu({...newEdu, gpa: e.target.value})} 
+                            value={newEdu.gpa} className='modal-input'/>
+                        <label className='modal-label'>Description:</label>
                             <textarea onChange={(e) => updateEdu({ ...newEdu, description: e.target.value })} value={newEdu.description}>{newEdu.description}</textarea>
-                        </label>
                         <button type='button' onClick={() => handleSubmit()}>Save</button>
                     </form>
                 </Modal>
