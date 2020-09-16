@@ -12,7 +12,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 50%;
+    width: 40%;
     height: 50%;
     background-color: white;
     border: 1px solid #ccc;
@@ -37,6 +37,23 @@
 .modal-label {
     
 }
+
 .modal-input {
-    margin-bottom: 1%;
+    margin-bottom: 1vh;
+}
+
+.modal-submit {
+    width: 100px;
+    height: 40px;
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    background-color: lightgray;
+    border: none;
+    border-radius: 2px;
+    font-size: 15px;
+}
+.modal-submit:hover {
+    cursor: pointer;
+    filter: brightness(80%);
 }

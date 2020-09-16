@@ -5,11 +5,11 @@ import SchoolInfoCard from './school_info_card.jsx';
 Modal.setAppElement('#root')
 
 const Main = (props) => {
-    let temp = [
-        {name: 'UC Berkeley', degree: 'BA', field: 'Psychology', start: '2012', end: '2016', gpa: '3.5', description: 'nice school'},
-        {name: 'App Academy', degree: 'Certificate', field: 'Full Stack Software Engineering', start: '2019', end: '2020', gpa: 'N/A', description: 'coding bootcamp'},
-    ];
-    const [education, addEducation] = React.useState(temp);
+    // let temp = [
+    //     {name: 'UC Berkeley', degree: 'BA', field: 'Psychology', start: '2012', end: '2016', gpa: '3.5', description: 'nice school'},
+    //     {name: 'App Academy', degree: 'Certificate', field: 'Full Stack Software Engineering', start: '2019', end: '2020', gpa: 'N/A', description: 'coding bootcamp'},
+    // ];
+    const [education, addEducation] = React.useState([]);
 
     let name;
     if (props.location.state && props.location.state.name) {
@@ -27,20 +27,9 @@ const Main = (props) => {
         gpa: '',
         description: ''
     };
+
     const [newEdu, updateEdu] = React.useState(blankEdu);
 
-    const customStyles = {
-        content: {
-            top: '50%',
-            left: '50%',
-            right: 'auto',
-            bottom: 'auto',
-            marginRight: '-50%',
-            transform: 'translate(-50%, -50%)',
-            width: '50vw',
-            height: '200px',
-        }
-    };
     const [modalIsOpen, setIsOpen] = React.useState(false);
 
     function openModal() {
@@ -58,10 +47,8 @@ const Main = (props) => {
         closeModal();
     }
 
-
     let titles = Object.values(education).map((school, i) => <li key={i} className='edu-li'>{school.name}</li>);
     let schools = Object.values(education).map((school, i) => <SchoolInfoCard school={school} key={i} />)
-
 
     return (
         <div className='main'>
@@ -71,7 +58,6 @@ const Main = (props) => {
                 <Modal 
                     isOpen={modalIsOpen}
                     onRequestClose={closeModal}
-                    // style={customStyles}
                     className={'modal'}
                     style={{
                         overlay: {
@@ -80,29 +66,29 @@ const Main = (props) => {
                             left: 0,
                             right: 0,
                             bottom: 0,
-                            backgroundColor: 'rgba(59, 59, 59, 0.5)',
+                            backgroundColor: 'rgba(80, 80, 80, 0.7)',
                         }
                     }}
                 >
                     <h2 className='modal-head'>New Education Modal</h2>
                     <form className='modal-form'>
-                        <label className='modal-label'>Name:</label>
+                        <label className='modal-label'>Name of School</label>
                             <input type="text" 
                             onChange={(e) => updateEdu({...newEdu, name: e.target.value})} 
                             value={newEdu.name} className='modal-input'/>
-                        <label className='modal-label'>Degree:</label>
+                        <label className='modal-label'>Degree</label>
                             <input type="text" 
                             onChange={(e) => updateEdu({...newEdu, degree: e.target.value})} 
                             value={newEdu.degree} className='modal-input'/>
-                        <label className='modal-label'>Field:</label>
+                        <label className='modal-label'>Field of study</label>
                             <input type="text" 
                             onChange={(e) => updateEdu({...newEdu, field: e.target.value})} 
                             value={newEdu.field} className='modal-input'/>
-                        <label className='modal-label'>Start:</label>
+                        <label className='modal-label'>Start year</label>
                             <input type="text" 
                             onChange={(e) => updateEdu({...newEdu, start: e.target.value})} 
                             value={newEdu.start} className='modal-input'/>
-                        <label className='modal-label'>End:</label>
+                        <label className='modal-label'>End year (Or expected)</label>
                             <input type="text" 
                             onChange={(e) => updateEdu({...newEdu, end: e.target.value})} 
                             value={newEdu.end} className='modal-input'/>
@@ -112,7 +98,10 @@ const Main = (props) => {
                             value={newEdu.gpa} className='modal-input'/>
                         <label className='modal-label'>Description:</label>
                             <textarea onChange={(e) => updateEdu({ ...newEdu, description: e.target.value })} value={newEdu.description}>{newEdu.description}</textarea>
-                        <button type='button' onClick={() => handleSubmit()}>Save</button>
+                        <button type='button' 
+                            onClick={() => handleSubmit()}
+                            className='modal-submit'>Save
+                        </button>
                     </form>
                 </Modal>
             </header>
