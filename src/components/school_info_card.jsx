@@ -1,10 +1,6 @@
 import React from 'react';
 
 class SchoolInfoCard extends React.Component {
-    constructor(props){
-        super(props);
-    }
-
     render() {
         const { school } = this.props;
         return(

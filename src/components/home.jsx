@@ -32,7 +32,7 @@ class Home extends React.Component {
           <p>Hi there! Welcome to your education showcase.</p>
           <p>Type your name and click "Enter" below to begin!</p>
           <input type="text" onChange={this.update} placeholder='Your Name' className='name-input'
-              value={this.name}></input>
+              value={this.state.name}></input>
 
           {/* Link to main page - currently no way of preventing users from proceeding
           regardless of empty name field or not */}
