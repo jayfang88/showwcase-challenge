@@ -28,8 +28,8 @@ class Main extends React.Component {
             name = 'No Name';
         }
 
-        let titles = this.education.map(school => <li>{school.name}</li>);
-        let schools = this.education.map(school => <SchoolInfoCard school={school}/>)
+        let titles = this.education.map((school, i) => <li key={i}>{school.name}</li>);
+        let schools = this.education.map((school, i) => <SchoolInfoCard school={school} key={i}/>)
 
         return (
             <div className='main'>
@@ -42,7 +42,7 @@ class Main extends React.Component {
                         <p className='main-aside-info'>{titles}</p>
                     </aside>
                     <section className='main-section'>
-                        <p className='main-section-info'>{schools}</p>
+                        <div className='main-section-info'>{schools}</div>
                     </section>
                 </main>
             </div>

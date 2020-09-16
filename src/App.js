@@ -2,7 +2,7 @@ import React from 'react';
 // import { Provider } from 'react-redux';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import Home from './components/home';
-import Main from './components/main';
+import Main from './components/main-page';
 import './styles/reset.css';
 import './styles/App.css';
 import './styles/main-page.css';
