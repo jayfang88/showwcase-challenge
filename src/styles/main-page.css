@@ -34,25 +34,25 @@
 }
 
 .main-body {
-    padding: 50px;
+    padding: 20px 50px;
     display: flex;
+    min-height: 50vh;
 }
 
 .main-aside {
     width: 20%;
+    margin-right: 5%;
+    height: inherit;
+    background-color: lightgray;
 }
 .main-aside-info {
-    /* display: flex;
-    flex-direction: column; */
-    padding: 20px;
-    background-color: lightgray;
+    padding: 30px 20px;
+    height: inherit;
+}
+.edu-li {
+    font-weight: 600;
 }
 
-.main-body {
-    width: 80%;
-}
-.main-body-info {
-
-    padding: 20px;
-    background-color: lightgray;
+.main-section {
+    width: 60%;
 }

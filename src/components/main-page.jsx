@@ -28,7 +28,7 @@ class Main extends React.Component {
             name = 'No Name';
         }
 
-        let titles = this.education.map((school, i) => <li key={i}>{school.name}</li>);
+        let titles = this.education.map((school, i) => <li key={i} className='edu-li'>{school.name}</li>);
         let schools = this.education.map((school, i) => <SchoolInfoCard school={school} key={i}/>)
 
         return (
