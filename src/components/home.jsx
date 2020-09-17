@@ -19,6 +19,7 @@ class Home extends React.Component {
   }
   
   updateError() {
+    // set state's 'error' to a message prompting user to enter a name'
     this.setState({ error: '*Please enter your name before continuing' });
     console.log(this.state.error);
   }
@@ -32,8 +33,8 @@ class Home extends React.Component {
           <input type="text" onChange={this.update} placeholder='Your Name' className='name-input'
               value={this.state.name}></input>
 
-          {/* If 'name' field is empty and user tries to submit, show 'error'
-              and prompt user to enter a name before continuing */}
+          {/* Check if 'name' field is empty to decide if button will be a
+              real link or simply display error message */}
           {this.state.name.length > 0 ? (
             <Link className='name-button' to={{pathname: '/main', state:{name: this.state.name}}}>Enter</Link>
           ) : (
