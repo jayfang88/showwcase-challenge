@@ -20,7 +20,6 @@
   align-items: center;
   justify-content: center;
   font-size: 18px;
-  /* color: white; */
 }
 .home p {
   width: 60%;
@@ -35,7 +34,6 @@
   height: 42px;
   padding: 3px 15px;
   font-size: 20px;
-  /* border: 1px solid rgb(128, 128, 128); */
   border: none;
   box-shadow: 2px 2px 8px 0px rgba(128, 128, 128, 0.596);
   border-radius: 8px;
@@ -85,5 +83,4 @@
   font-size: 14px;
   margin-top: 14px;
   height: 20px;
-  /* font-weight: 600; */
 }
