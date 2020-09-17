@@ -24,13 +24,12 @@
 
 .modal-head {
     font-weight: 600;
-    margin-bottom: 2vh;
+    margin-bottom: 20px;
 }
 
 .modal-form {
     display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */
     overflow: scroll;
 }
 
@@ -65,4 +64,32 @@
 .modal-submit:hover {
     cursor: pointer;
     filter: brightness(80%);
+}
+
+.suggestions-hidden {
+    display: none;
+}
+
+.suggestions-show {
+    display: block;
+    border: 1px solid lightgray;
+    width: 65%;
+    position: fixed;
+    top: 117px;
+    left: 60px;
+    background-color: rgb(247, 247, 247);
+    padding: 2px 5px;
+    font-size: 13px;
+}
+
+.suggestion-li {
+    border-bottom: 1px solid rgb(218, 218, 218);
+    background-color: rgb(247, 247, 247);
+    margin-bottom: 2px;
+    padding: 2px;
+    border-radius: 2px;
+}
+.suggestion-li:hover {
+    cursor: pointer;
+    background-color: white;
 }

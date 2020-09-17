@@ -55,11 +55,24 @@ const Main = (props) => {
     }
 
     const [suggestions, setSuggestions] = React.useState([]);
-
+    const [suggestionsShow, toggleSuggestions] = React.useState(false);
+    
     function updateName(e) {
         updateEdu({...newEdu, name: e.target.value});
-        let filtered = allSchools.filter(school => school.toLowerCase().includes(newEdu.name.toLowerCase()));
-        setSuggestions(filtered.slice(0,5));
+        let filtered = allSchools.filter(school => school.toLowerCase().includes(newEdu.name.toLowerCase())).slice(0,7);
+        let sugg = filtered.map((school, i) => {
+            return (
+                <li className='suggestion-li' key={i}
+                    onClick={(e) => selectName(e)}>{school}</li>
+            );
+        });
+        setSuggestions(sugg);
+        sugg.length > 0 ? toggleSuggestions(true) : toggleSuggestions(false);
+    }
+
+    function selectName(e) {
+        updateEdu({...newEdu, name: e.target.innerHTML });
+        toggleSuggestions(false);
     }
 
     let titles = Object.values(education).map((school, i) => <li key={i} className='edu-li'>{school.name}</li>);
@@ -92,7 +105,7 @@ const Main = (props) => {
                     onChange={(e) => updateName(e)} 
                     value={newEdu.name} className='modal-input'/>
                     { newEdu.name.length > 0 && suggestions.length > 0 ? (
-                        <div>{suggestions}</div>
+                        <div className={ suggestionsShow ? 'suggestions-show' : 'suggestions-hidden' }>{suggestions}</div>
                     ) : (
                         <div></div>
                     )}
