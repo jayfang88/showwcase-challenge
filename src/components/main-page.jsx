@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-modal';
 import SchoolInfoCard from './school_info_card.jsx';
 
@@ -21,11 +21,7 @@ const Main = (props) => {
         name = 'No Name';
     }
 
-    let temp = [
-        { name: 'UC Berkeley', degree: 'BA', field: 'Psychology', start: '2012', end: '2016', gpa: '3.5', description: 'nice school' },
-        { name: 'App Academy', degree: 'Certificate', field: 'Full Stack Software Engineering', start: '2019', end: '2020', gpa: 'N/A', description: 'coding bootcamp' },
-    ];
-    const [education, addEducation] = React.useState(temp);
+    const [education, addEducation] = useState([]);
 
     const blankEdu = {
         name: '',
@@ -36,9 +32,9 @@ const Main = (props) => {
         gpa: '',
         description: ''
     };
-    const [newEdu, updateEdu] = React.useState(blankEdu);
+    const [newEdu, updateEdu] = useState(blankEdu);
 
-    const [modalIsOpen, setIsOpen] = React.useState(false);
+    const [modalIsOpen, setIsOpen] = useState(false);
 
     function openModal() {
         setIsOpen(true);
@@ -54,8 +50,8 @@ const Main = (props) => {
         closeModal();
     }
 
-    const [suggestions, setSuggestions] = React.useState([]);
-    const [suggestionsShow, toggleSuggestions] = React.useState(false);
+    const [suggestions, setSuggestions] = useState([]);
+    const [suggestionsShow, toggleSuggestions] = useState(false);
     
     function updateName(e) {
         updateEdu({...newEdu, name: e.target.value});
