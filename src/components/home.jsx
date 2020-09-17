@@ -6,23 +6,21 @@ class Home extends React.Component {
     super();
     this.update = this.update.bind(this);
     this.state = {
-      name: ''
-    }
+      name: '',
+      error: ''
+    };
+
+    this.updateError = this.updateError.bind(this);
   }
 
   update(e) {
     // sets state's 'name' to current target of input field
     this.setState({ name: e.currentTarget.value });
   }
-
-  goToMain() {
-    // want some way to prevent users from proceeding unless they enter a name
-    if (!this.state.name) {
-      alert('please enter a name');
-      return
-    }
-    
-    // redirect to main page w/ user's entered name
+  
+  updateError() {
+    this.setState({ error: '*Please enter your name before continuing' });
+    console.log(this.state.error);
   }
 
   render() {
@@ -34,11 +32,17 @@ class Home extends React.Component {
           <input type="text" onChange={this.update} placeholder='Your Name' className='name-input'
               value={this.state.name}></input>
 
-          {/* Link to main page - currently no way of preventing users from proceeding
-          regardless of empty name field or not */}
-          <Link className='name-button' to={{pathname: '/main', state:{name: this.state.name}}}>Enter</Link>
-          
-          {/* <button className='name-button' onClick={() => this.goToMain()}>Enter</button> */}
+          {this.state.name.length > 0 ? (
+            <Link className='name-button' to={{pathname: '/main', state:{name: this.state.name}}}>Enter</Link>
+          ) : (
+            <button className='name-button'
+              onClick={() => this.updateError()}>Enter</button>
+          )}
+          {this.state.name.length > 0 ? (
+            <div className='error'></div>
+          ) : (
+            <div className='error'>{this.state.error}</div>
+          )}
         </main>
       </div>
     );

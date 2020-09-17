@@ -57,3 +57,11 @@
 .name-button:focus {
   outline: none;
 }
+
+.error {
+  color: rgb(184, 0, 0);
+  font-size: 14px;
+  margin-top: 14px;
+  height: 20px;
+  /* font-weight: 600; */
+}
