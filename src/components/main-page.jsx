@@ -54,8 +54,9 @@ const Main = (props) => {
     const [suggestionsShow, toggleSuggestions] = useState(false);
     
     function updateName(e) {
-        updateEdu({...newEdu, name: e.target.value});
-        let filtered = allSchools.filter(school => school.toLowerCase().includes(newEdu.name.toLowerCase())).slice(0,7);
+        let query = e.target.value;
+        updateEdu({...newEdu, name: query});
+        let filtered = allSchools.filter(school => school.toLowerCase().includes(query.toLowerCase())).slice(0,7);
         let sugg = filtered.map((school, i) => {
             return (
                 <li className='suggestion-li' key={i}

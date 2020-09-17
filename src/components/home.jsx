@@ -20,7 +20,7 @@ class Home extends React.Component {
   
   updateError() {
     // set state's 'error' to a message prompting user to enter a name'
-    this.setState({ error: '*Please enter your name before continuing' });
+    this.setState({ error: '*Please enter your name before continuing!' });
     console.log(this.state.error);
   }
 
