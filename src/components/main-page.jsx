@@ -4,6 +4,15 @@ import SchoolInfoCard from './school_info_card.jsx';
 
 Modal.setAppElement('#root')
 
+let allSchools = [];
+async function getSchools() {
+    await fetch(`http://universities.hipolabs.com/search?name=`)
+        .then(blob => blob.json())
+        .then(data => allSchools = data);
+    allSchools = allSchools.map(school => school.name);
+}
+getSchools();
+
 const Main = (props) => {
     let name;
     if (props.location.state && props.location.state.name) {
@@ -41,15 +50,16 @@ const Main = (props) => {
     function handleSubmit() {
         let updatedList = [newEdu].concat(education.slice());
         addEducation(updatedList);
-        console.log(education);
         updateEdu(blankEdu);
         closeModal();
     }
 
-    function autocomplete(query) {
-        fetch(`http://universities.hipolabs.com/search?name=${query}`)
-            .then(blob => blob.json())
-            .then(data => console.log(data))
+    const [suggestions, setSuggestions] = React.useState([]);
+
+    function updateName(e) {
+        updateEdu({...newEdu, name: e.target.value});
+        let filtered = allSchools.filter(school => school.toLowerCase().includes(newEdu.name.toLowerCase()));
+        setSuggestions(filtered.slice(0,5));
     }
 
     let titles = Object.values(education).map((school, i) => <li key={i} className='edu-li'>{school.name}</li>);
@@ -79,34 +89,46 @@ const Main = (props) => {
                 <form className='modal-form'>
                     <label className='modal-label'>Name of School</label>
                     <input type="text" 
-                    onChange={(e) => updateEdu({...newEdu, name: e.target.value})} 
+                    onChange={(e) => updateName(e)} 
                     value={newEdu.name} className='modal-input'/>
+                    { newEdu.name.length > 0 && suggestions.length > 0 ? (
+                        <div>{suggestions}</div>
+                    ) : (
+                        <div></div>
+                    )}
+
                     <label className='modal-label'>Degree</label>
                     <input type="text" 
                     onChange={(e) => updateEdu({...newEdu, degree: e.target.value})} 
                     value={newEdu.degree} className='modal-input'/>
+
                     <label className='modal-label'>Field of study</label>
                     <input type="text" 
                     onChange={(e) => updateEdu({...newEdu, field: e.target.value})} 
                     value={newEdu.field} className='modal-input'/>
+
                     <label className='modal-label'>Start year</label>
                     <input type="text" 
                     onChange={(e) => updateEdu({...newEdu, start: e.target.value})} 
                     value={newEdu.start} className='modal-input'/>
+
                     <label className='modal-label'>End year (Or expected)</label>
                     <input type="text" 
                     onChange={(e) => updateEdu({...newEdu, end: e.target.value})} 
                     value={newEdu.end} className='modal-input'/>
+
                     <label className='modal-label'>Grade:</label>
                     <input type="text" 
                     onChange={(e) => updateEdu({...newEdu, gpa: e.target.value})} 
                     value={newEdu.gpa} className='modal-input'/>
+
                     <label className='modal-label'>Description:</label>
                     <textarea 
                         onChange={(e) => updateEdu({ ...newEdu, description: e.target.value })} 
                         value={newEdu.description}
                         className='modal-input'>{newEdu.description}
                     </textarea>
+                    
                     <button type='button' 
                         onClick={() => handleSubmit()}
                         className='modal-submit'>Save

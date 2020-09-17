@@ -13,3 +13,12 @@
 .edu-details {
     margin-bottom: 20px;
 }
+
+.edu-detail-label {
+    font-size: 13px;
+}
+
+.description {
+    margin-bottom: 5px;
+    margin-right: 6px;
+}
