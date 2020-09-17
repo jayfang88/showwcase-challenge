@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import banner from '../assets/showwcase_banner.png';
 
 class Home extends React.Component {
   constructor() {
@@ -27,6 +28,7 @@ class Home extends React.Component {
   render() {
     return (
       <div className="App">
+        <img className='banner' src={banner} alt="Showwcase Banner"/>
         <main className="home">
           <p>Hi there! Welcome to your education showcase.</p>
           <p>Type your name and click "Enter" below to begin!</p>
