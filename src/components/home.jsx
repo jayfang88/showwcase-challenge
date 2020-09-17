@@ -32,6 +32,8 @@ class Home extends React.Component {
           <input type="text" onChange={this.update} placeholder='Your Name' className='name-input'
               value={this.state.name}></input>
 
+          {/* If 'name' field is empty and user tries to submit, show 'error'
+              and prompt user to enter a name before continuing */}
           {this.state.name.length > 0 ? (
             <Link className='name-button' to={{pathname: '/main', state:{name: this.state.name}}}>Enter</Link>
           ) : (
